@@ -1,4 +1,22 @@
 {
+    "name": "is-doji",
+    "version": "0.0.1",
+    "description": "Check if candle qualifies as a doji",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ericcrosson/is-doji.git"
+    },
+    "keywords": ["candle", "ohlcv", "trading", "candlestick"],
+    "author": "Eric Crosson",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ericcrosson/is-doji/issues"
+    },
+    "homepage": "https://github.com/ericcrosson/is-doji",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    }
     "scripts": {
         "test": "mocha",
         "test-loop": "nodemon -e 'js' -x mocha || true"

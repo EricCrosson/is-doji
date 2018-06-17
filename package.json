@@ -16,7 +16,7 @@
     "directories": {
         "lib": "lib",
         "test": "test"
-    }
+    },
     "scripts": {
         "test": "mocha",
         "test-loop": "nodemon -e 'js' -x mocha || true"

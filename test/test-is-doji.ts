@@ -38,7 +38,7 @@ describe('is-doji', () => {
 	    low: low,
 	    close: close
 	}
-        console.log(candle)
+        // console.log(candle)
         return candle
     }
 

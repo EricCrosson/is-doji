@@ -25,5 +25,5 @@ export interface Candle {
 export function isDoji(candle: Candle, maximumBodyAsPercentOfSpread: number = 8): boolean {
     const body = Math.abs(candle.open - candle.close)
     const spread = candle.high - candle.low
-    return body / spread * 100 <= maximumBodyAsPercentOfSpread
+    return body == 0 || body / spread * 100 <= maximumBodyAsPercentOfSpread
 }

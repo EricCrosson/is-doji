@@ -7,11 +7,14 @@ const expect = require('chai').expect
 import { isDoji, Candle } from '../src/is-doji'
 
 
+/**
+ * Generate a random number between min and max
+ */
+
 function getRandomInt(min: number, max: number): number {
     return min + Math.floor(Math.random() * (max - min + 1));
 }
 
-// amchelle is da best
 describe('is-doji', () => {
 
     /**
@@ -22,17 +25,21 @@ describe('is-doji', () => {
      */
     function makeCandle(bodyToSpreadRatio: number = 8): Candle {
 	const open = getRandomInt(1, 100)
-	const close = getRandomInt(1, 100)
+        let close
+        do {
+            close = getRandomInt(1, 100)
+        } while (close == open)
 	const spread = 100.0 * Math.abs(open - close) / bodyToSpreadRatio
-        // console.log(`Spread is ${spread}`)
 	const low = getRandomInt(Math.max(open, close) - spread, Math.min(open, close))
-	const high = low + 100.0 * Math.abs(open - close)/bodyToSpreadRatio
-	return {
+	const high = low + 100.0 * Math.abs(open - close) / bodyToSpreadRatio
+	const candle: Candle = {
 	    open: open,
 	    high: high,
 	    low: low,
 	    close: close
 	}
+        console.log(candle)
+        return candle
     }
 
     describe('makeCandle generator', () => {
@@ -43,7 +50,6 @@ describe('is-doji', () => {
 	beforeEach(() => {
 	    candle = makeCandle()
             candleData = Object.values(candle)
-            // console.log(candle)
 	})
 
 	it('should return low as the lowest value', () => {
@@ -60,6 +66,9 @@ describe('is-doji', () => {
 	    expect(Math.max(...candleData)).to.be.at.least(candle.close)
 	    expect(Math.min(...candleData)).to.be.at.most(candle.close)
 	})
+        it('should not have open equal to close', () => {
+            expect(candle.open).to.not.equal(candle.close)
+        })
     })
 
     describe('#isDoji()', () => {
@@ -75,16 +84,21 @@ describe('is-doji', () => {
 	it('should return true when given a doji', () => {
 	    spread = 5
 	    candle = makeCandle(spread)
-            // console.log(candle)
 	    expect(isDoji(candle, spread)).to.equal(true)
 	})
 
-	it('should return false when not given a doji', () => {
+	it('should return false when given a non-doji', () => {
 	    spread = 5
 	    candle = makeCandle(spread * 2)
-            // console.log(candle)
+            // DEBUG
+            // fails when makeCandle returns 12,12,12,12
 	    expect(isDoji(candle, spread)).to.equal(false)
 	})
+
+        it('should return true when given a candle with open equal to close', () => {
+            candle = {open: 26, high: 26, low: 26, close: 26}
+	    expect(isDoji(candle)).to.equal(true)
+        })
 
         it('should return true when spread is exactly the maximum threshold', () => {
             spread = 8
@@ -101,32 +115,6 @@ describe('is-doji', () => {
         it('should return false when spread is a pip over the maximum threshold', () => {
             spread = 8
             candle = {open: 0, low: 0, high: 99.9999999, close: 8}
-            expect(isDoji(candle, spread)).to.equal(false)
-        })
-
-        it('should return true when given a doji expressed with strings', () => {
-            expect(isDoji(candle, spread)).to.equal(true)
-        })
-
-        it('should return true when given a doji expressed with numbers', () => {
-            candle.open = candle.open
-            candle.high = candle.high
-            candle.low = candle.low
-            candle.close = candle.close
-            expect(isDoji(candle, spread)).to.equal(true)
-        })
-
-        it('should return false when given a non-doji expressed with strings', () => {
-            candle = makeCandle(spread * 2)
-            expect(isDoji(candle, spread)).to.equal(false)
-        })
-
-        it('should return false when given a non-doji expressed with numbers', () => {
-            candle = makeCandle(spread * 2)
-            candle.open = candle.open
-            candle.high = candle.high
-            candle.low = candle.low
-            candle.close = candle.close
             expect(isDoji(candle, spread)).to.equal(false)
         })
     })

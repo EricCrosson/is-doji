@@ -1,28 +1,49 @@
 {
-    "name": "is-doji",
-    "version": "0.0.1",
-    "description": "Check if candle qualifies as a doji",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/ericcrosson/is-doji.git"
-    },
-    "keywords": ["candle", "ohlcv", "trading", "candlestick"],
-    "author": "Eric Crosson",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/ericcrosson/is-doji/issues"
-    },
-    "homepage": "https://github.com/ericcrosson/is-doji",
-    "directories": {
-        "lib": "lib",
-        "test": "test"
-    },
-    "scripts": {
-        "test": "mocha",
-        "test-loop": "nodemon -e 'js' -x mocha || true"
-    },
-    "devDependencies": {
-        "chai": "^4.1.2",
-        "mocha": "^5.2.0"
+  "name": "is-doji",
+  "version": "0.0.1",
+  "description": "Test if a Japanese candlestick qualifies as a doji",
+  "main": "dist/is-doji.js",
+  "types": "dist/is-doji.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha -r ts-node/register ./test/*.ts",
+    "dev": "concurrently \"tsc -w\" \"nodemon -e 'ts' -x 'npm test || true'\"",
+    "typedoc": "typedoc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run typedoc && git add doc && (git commit -m 'Update documentation' || true)"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricCrosson/is-doji.git"
+  },
+  "keywords": [
+    "candle",
+    "ohlc",
+    "trading",
+    "japanese",
+    "candlestick"
+  ],
+  "author": "Eric Crosson <eric.s.crosson@utexas.com> (https://github.com/EricCrosson)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricCrosson/is-doji/is-doji/issues"
+  },
+  "homepage": "https://github.com/EricCrosson/is-doji/is-doji",
+  "dependencies": {
+    "@types/node": "^10.12.18",
+    "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "concurrently": "^4.1.0",
+    "husky": "^1.3.1",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typedoc": "^0.13.0",
+    "typedoc-plugin-markdown": "^1.1.20"
+  }
 }

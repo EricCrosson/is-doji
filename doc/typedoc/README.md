@@ -15,16 +15,16 @@ Use
 ---
 
 ```typescript
-import { isDoji } from '../src/is-doji'
+import { isDoji, Candle } from '../src/is-doji'
 
-const dojiCandle = {
+const dojiCandle: Candle = {
   open: 0,
   high: 100,
   low: 0,
   close: 8
 }
 
-const nonDojiCandle = {
+const nonDojiCandle: Candle = {
   open: 0,
   high: 100,
   low: 0,
@@ -58,7 +58,7 @@ console.log(isDoji(nonDojiCandle))
 
 ▸ **isDoji**(candle: *[Candle](interfaces/candle.md)*, maximumBodyAsPercentOfSpread?: *`number`*): `boolean`
 
-*Defined in [is-doji.ts:25](https://github.com/ericcrosson/is-doji/blob/e9ea94b/src/is-doji.ts#L25)*
+*Defined in [is-doji.ts:25](https://github.com/ericcrosson/is-doji/blob/eeffa44/src/is-doji.ts#L25)*
 
 Returns true if candle qualifies as a doji.
 

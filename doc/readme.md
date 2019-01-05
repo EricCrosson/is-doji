@@ -11,16 +11,16 @@ npm install is-doji
 ## Use
 
 ``` typescript
-import { isDoji } from '../src/is-doji'
+import { isDoji, Candle } from '../src/is-doji'
 
-const dojiCandle = {
+const dojiCandle: Candle = {
   open: 0,
   high: 100,
   low: 0,
   close: 8
 }
 
-const nonDojiCandle = {
+const nonDojiCandle: Candle = {
   open: 0,
   high: 100,
   low: 0,

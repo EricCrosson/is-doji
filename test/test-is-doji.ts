@@ -44,8 +44,8 @@ describe('is-doji', () => {
 
     describe('makeCandle generator', () => {
 
-	var candle: Candle
-        var candleData: number[]
+	let candle: Candle
+        let candleData: number[]
 
 	beforeEach(() => {
 	    candle = makeCandle()
@@ -73,8 +73,8 @@ describe('is-doji', () => {
 
     describe('#isDoji()', () => {
 
-        var candle: Candle
-        var spread: number
+        let candle: Candle
+        let spread: number
 
         beforeEach(() => {
             candle = makeCandle()
@@ -90,8 +90,6 @@ describe('is-doji', () => {
 	it('should return false when given a non-doji', () => {
 	    spread = 5
 	    candle = makeCandle(spread * 2)
-            // DEBUG
-            // fails when makeCandle returns 12,12,12,12
 	    expect(isDoji(candle, spread)).to.equal(false)
 	})
 

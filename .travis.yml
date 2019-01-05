@@ -1,13 +1,30 @@
 ---
-
 language: node_js
+
+node_js:
+  - 'node'
+  - '11'
+  - '10'
 
 sudo: false
 
-node_js:
-  - "9.3.0"
-  - "10.4.1"
+# env:
+#   - workerCount=3 timeout=60000
+
+matrix:
+  fast_finish: true
+
 install:
+  - npm uninstall typescript --no-save
+  - npm uninstall tslint --no-save
   - npm install
+
 script:
   - npm test
+
+cache:
+  directories:
+    - node_modules
+
+git:
+  depth: 1

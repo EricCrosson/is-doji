@@ -1,2 +1,8 @@
-/node_modules
-yarn-error.log
+.DS_Store
+node_modules/
+flycheck_*
+\#*
+*~
+*.*~
+.yo-rc.json
+scratch/

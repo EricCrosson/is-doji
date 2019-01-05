@@ -27,7 +27,7 @@ Represents a Japanese candlestick
 
 **● close**: *`number`*
 
-*Defined in [is-doji.ts:13](https://github.com/ericcrosson/is-doji/blob/30c53f6/src/is-doji.ts#L13)*
+*Defined in [is-doji.ts:13](https://github.com/ericcrosson/is-doji/blob/e9ea94b/src/is-doji.ts#L13)*
 
 ___
 <a id="high"></a>
@@ -36,7 +36,7 @@ ___
 
 **● high**: *`number`*
 
-*Defined in [is-doji.ts:11](https://github.com/ericcrosson/is-doji/blob/30c53f6/src/is-doji.ts#L11)*
+*Defined in [is-doji.ts:11](https://github.com/ericcrosson/is-doji/blob/e9ea94b/src/is-doji.ts#L11)*
 
 ___
 <a id="low"></a>
@@ -45,7 +45,7 @@ ___
 
 **● low**: *`number`*
 
-*Defined in [is-doji.ts:12](https://github.com/ericcrosson/is-doji/blob/30c53f6/src/is-doji.ts#L12)*
+*Defined in [is-doji.ts:12](https://github.com/ericcrosson/is-doji/blob/e9ea94b/src/is-doji.ts#L12)*
 
 ___
 <a id="open"></a>
@@ -54,7 +54,7 @@ ___
 
 **● open**: *`number`*
 
-*Defined in [is-doji.ts:10](https://github.com/ericcrosson/is-doji/blob/30c53f6/src/is-doji.ts#L10)*
+*Defined in [is-doji.ts:10](https://github.com/ericcrosson/is-doji/blob/e9ea94b/src/is-doji.ts#L10)*
 
 ___
 

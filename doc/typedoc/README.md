@@ -58,7 +58,7 @@ console.log(isDoji(nonDojiCandle))
 
 ▸ **isDoji**(candle: *[Candle](interfaces/candle.md)*, maximumBodyAsPercentOfSpread?: *`number`*): `boolean`
 
-*Defined in [is-doji.ts:25](https://github.com/ericcrosson/is-doji/blob/eeffa44/src/is-doji.ts#L25)*
+*Defined in [is-doji.ts:25](https://github.com/ericcrosson/is-doji/blob/b5564f7/src/is-doji.ts#L25)*
 
 Returns true if candle qualifies as a doji.
 
